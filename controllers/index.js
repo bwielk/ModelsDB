@@ -5,7 +5,7 @@ var path = require('path');
 router.use('/api/models', require('./models'));
 
 router.get('/', function(req, res){
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 });
 
 router.get('/all', function(req, res){
