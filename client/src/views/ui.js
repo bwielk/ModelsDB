@@ -5,7 +5,7 @@ var UI = function(){
   models.all(function(result) {
     this.render(result);
   }.bind(this));
-}
+};
 
 UI.prototype = {
   appendText: function(element, text, label) {

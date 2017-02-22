@@ -12,10 +12,10 @@ Models.prototype = {
     this.makeRequest("http://localhost:3000/api/models", function(){
       if(this.status !== 200) return;
       var jsonString = this.responseText;
-      var results = JSON.parse(jsonString);
-
-      callback(results);
-    });
+      var result = JSON.parse(jsonString);
+      callback(result);
+      console.log(result);
+    })
   }
 };
 

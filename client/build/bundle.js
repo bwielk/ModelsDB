@@ -89,7 +89,7 @@ var UI = function(){
   models.all(function(result) {
     this.render(result);
   }.bind(this));
-}
+};
 
 UI.prototype = {
   appendText: function(element, text, label) {
@@ -129,10 +129,10 @@ Models.prototype = {
     this.makeRequest("http://localhost:3000/api/models", function(){
       if(this.status !== 200) return;
       var jsonString = this.responseText;
-      var results = JSON.parse(jsonString);
-
-      callback(results);
-    });
+      var result = JSON.parse(jsonString);
+      callback(result);
+      console.log(result);
+    })
   }
 };
 

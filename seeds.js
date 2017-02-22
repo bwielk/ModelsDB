@@ -1,7 +1,5 @@
 use models;
 
-db.dropDatabase();
-
 db.runwayModels.insert([
 {
   name: "Gisele",
@@ -22,4 +20,4 @@ db.runwayModels.insert([
   ]
   );
 
-db.runwayModels.find();
+
