@@ -70,9 +70,9 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var UI = __webpack_require__(1)
+var UI = __webpack_require__(1);
 
-var app = function() {
+var app = function(){
   new UI();
 }
 
@@ -82,7 +82,7 @@ window.onload = app;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var models = __webpack_require__(2);
+var Models = __webpack_require__(2);
 
 var UI = function(){
   var models = new Models();
@@ -104,19 +104,42 @@ UI.prototype = {
       var li = document.createElement('li');
       this.appendText(li, model.name, 'Name: ');
       this.appendText(li, model.status, 'Status: ');
+      container.appendChild(li);
     }
-
-    container.appendChild(li);
   }
 }
+
+module.exports = UI;
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-var Models = function(){}
+var Models = function(){};
+
+Models.prototype = {
+  makeRequest: function(url, callback){
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.onload = callback;
+    request.send();
+  },
+  
+  all: function(callback){
+    this.makeRequest("http://localhost:3000/api/models", function(){
+      if(this.status !== 200) return;
+      var jsonString = this.responseText;
+      var results = JSON.parse(jsonString);
+
+      callback(results);
+    });
+  }
+};
 
 module.exports = Models;
+
+
+///this speaks with the front end // API!
 
 /***/ })
 /******/ ]);

@@ -1,4 +1,4 @@
-var models = require('../models/models');
+var Models = require('../models/models');
 
 var UI = function(){
   var models = new Models();
@@ -20,8 +20,9 @@ UI.prototype = {
       var li = document.createElement('li');
       this.appendText(li, model.name, 'Name: ');
       this.appendText(li, model.status, 'Status: ');
+      container.appendChild(li);
     }
-
-    container.appendChild(li);
   }
 }
+
+module.exports = UI;

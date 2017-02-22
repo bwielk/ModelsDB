@@ -1,6 +1,6 @@
-var UI = require('./views/ui')
+var UI = require('./views/ui');
 
-var app = function() {
+var app = function(){
   new UI();
 }
 
